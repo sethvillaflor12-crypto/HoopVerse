@@ -1,0 +1,1384 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>HoopVerse | Basketball</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+<style>
+
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+    scroll-behavior:smooth;
+}
+
+body{
+    background:#080808;
+    color:white;
+    overflow-x:hidden;
+}
+
+:root{
+    --orange:#ff7200;
+    --orange2:#ff4d00;
+}
+
+
+
+header{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    padding:20px 7%;
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    background:rgba(0,0,0,.65);
+    backdrop-filter:blur(15px);
+
+    z-index:1000;
+
+    transition:.3s;
+}
+
+header.scrolled{
+    padding:14px 7%;
+    background:rgba(0,0,0,.95);
+}
+
+.logo{
+    font-size:28px;
+    font-weight:900;
+}
+
+.logo span{
+    color:var(--orange);
+}
+
+nav{
+    display:flex;
+    gap:25px;
+}
+
+nav a{
+    color:white;
+    text-decoration:none;
+    font-size:14px;
+    font-weight:600;
+    transition:.3s;
+}
+
+nav a:hover{
+    color:var(--orange);
+}
+
+
+
+.hero{
+    height:100vh;
+    min-height:650px;
+
+    display:flex;
+    align-items:center;
+
+    background:
+    linear-gradient(
+        90deg,
+        rgba(0,0,0,.9),
+        rgba(0,0,0,.6),
+        rgba(0,0,0,.😎
+    ),
+    url("https://images.unsplash.com/photo-1546519638-68e109498ffc?w=1800")
+    center/cover no-repeat;
+}
+
+.hero-content{
+    max-width:900px;
+    padding-left:9%;
+}
+
+.small-title{
+    color:var(--orange);
+    letter-spacing:5px;
+    font-size:13px;
+    font-weight:800;
+}
+
+.hero h1{
+    font-size:clamp(50px,7vw,90px);
+    line-height:1;
+    font-weight:900;
+    margin:20px 0 30px;
+}
+
+.hero h1 span{
+    display:block;
+    color:var(--orange);
+}
+
+.hero p{
+    max-width:700px;
+    color:#ddd;
+    line-height:1.8;
+    font-size:18px;
+}
+
+.hero-buttons{
+    display:flex;
+    gap:15px;
+    margin-top:35px;
+    flex-wrap:wrap;
+}
+
+.btn{
+    display:inline-block;
+    padding:15px 30px;
+    background:var(--orange);
+    color:white;
+    text-decoration:none;
+    border-radius:50px;
+    font-weight:700;
+    transition:.3s;
+}
+
+.btn:hover{
+    transform:translateY(-4px);
+    background:var(--orange2);
+}
+
+.btn-outline{
+    background:transparent;
+    border:1px solid white;
+}
+
+.btn-outline:hover{
+    background:white;
+    color:black;
+}
+
+
+
+section{
+    padding:110px 8%;
+}
+
+.section-tag{
+    color:var(--orange);
+    text-align:center;
+    font-size:12px;
+    letter-spacing:4px;
+    font-weight:800;
+    margin-bottom:15px;
+}
+
+section h2{
+    text-align:center;
+    font-size:clamp(35px,5vw,60px);
+    font-weight:900;
+    margin-bottom:30px;
+}
+
+section h2 span{
+    color:var(--orange);
+}
+
+.section-description{
+    max-width:650px;
+    margin:0 auto 60px;
+    text-align:center;
+    color:#aaa;
+    line-height:1.8;
+}
+
+
+
+
+.introduction{
+    max-width:1000px;
+    margin:auto;
+}
+
+.introduction p{
+    color:#ccc;
+    font-size:18px;
+    line-height:2;
+    text-align:justify;
+    margin-bottom:25px;
+}
+
+
+
+.stats{
+    padding:70px 8%;
+    background:#121212;
+
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    text-align:center;
+    gap:20px;
+}
+
+.stat h3{
+    color:var(--orange);
+    font-size:50px;
+    font-weight:900;
+}
+
+.stat p{
+    color:#aaa;
+    font-size:12px;
+    letter-spacing:2px;
+}
+
+
+
+.player-grid{
+    max-width:1100px;
+    margin:auto;
+
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:25px;
+}
+
+.player-card{
+    position:relative;
+
+    padding:40px 30px;
+
+    background:linear-gradient(145deg,#181818,#0e0e0e);
+
+    border-radius:25px;
+
+    border:1px solid rgba(255,255,255,.06);
+
+    transition:.4s;
+}
+
+.player-card:hover{
+    transform:translateY(-10px);
+    border-color:var(--orange);
+}
+
+.player-card.featured{
+    border-color:rgba(255,114,0,.5);
+}
+
+.player-number{
+    position:absolute;
+    right:20px;
+    top:15px;
+
+    font-size:60px;
+    font-weight:900;
+
+    color:rgba(255,255,255,.04);
+}
+
+.player-icon{
+    font-size:40px;
+    width:75px;
+    height:75px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    background:rgba(255,114,0,.1);
+    border-radius:20px;
+
+    margin-bottom:25px;
+}
+
+.player-card h3{
+    font-size:25px;
+    margin-bottom:15px;
+}
+
+.player-card p{
+    color:#aaa;
+    line-height:1.7;
+    margin-bottom:20px;
+}
+
+.player-card span{
+    color:var(--orange);
+    font-size:11px;
+    font-weight:800;
+    letter-spacing:2px;
+}
+
+
+
+.game-section{
+    background:
+    radial-gradient(
+        circle at center,
+        #24170d,
+        #080808 70%
+    );
+}
+
+.game-hud{
+    max-width:900px;
+    margin:0 auto 25px;
+
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:12px;
+}
+
+.hud-box{
+    background:#151515;
+    border:1px solid rgba(255,255,255,.08);
+    border-radius:15px;
+    padding:15px;
+    text-align:center;
+}
+
+.hud-box small{
+    color:#777;
+    font-size:10px;
+    letter-spacing:2px;
+}
+
+.hud-box strong{
+    display:block;
+    color:var(--orange);
+    font-size:28px;
+}
+
+
+
+.game-container{
+    max-width:900px;
+    height:500px;
+
+    margin:auto;
+
+    position:relative;
+    overflow:hidden;
+
+    border-radius:25px;
+
+    background:#b75c20;
+
+    border:4px solid #222;
+
+    box-shadow:0 30px 70px rgba(0,0,0,.5);
+}
+
+.game-container::before{
+    content:"";
+
+    position:absolute;
+    inset:0;
+
+    background:
+    repeating-linear-gradient(
+        90deg,
+        rgba(255,255,255,.04) 0,
+        rgba(255,255,255,.04) 2px,
+        transparent 2px,
+        transparent 60px
+    );
+}
+
+.court-lines{
+    position:absolute;
+
+    left:50%;
+    bottom:-260px;
+
+    transform:translateX(-50%);
+
+    width:650px;
+    height:650px;
+
+    border:5px solid rgba(255,255,255,.6);
+    border-radius:50%;
+}
+
+.three-point-line{
+    position:absolute;
+
+    left:50%;
+    bottom:-370px;
+
+    transform:translateX(-50%);
+
+    width:950px;
+    height:700px;
+
+    border:5px solid rgba(255,255,255,.55);
+    border-radius:50%;
+}
+
+.free-throw-line{
+    position:absolute;
+
+    left:50%;
+    bottom:80px;
+
+    transform:translateX(-50%);
+
+    width:260px;
+    height:150px;
+
+    border:4px solid rgba(255,255,255,.5);
+    border-bottom:none;
+
+    border-radius:150px 150px 0 0;
+}
+
+
+
+.backboard{
+    position:absolute;
+
+    top:55px;
+    left:50%;
+
+    transform:translateX(-50%);
+
+    width:150px;
+    height:100px;
+
+    background:rgba(255,255,255,.85);
+
+    border:6px solid #222;
+
+    border-radius:5px;
+}
+
+.backboard::after{
+    content:"";
+
+    position:absolute;
+
+    width:60px;
+    height:45px;
+
+    left:50%;
+    top:40px;
+
+    transform:translateX(-50%);
+
+    border:4px solid #ff3b00;
+}
+
+.rim{
+    position:absolute;
+
+    width:90px;
+    height:18px;
+
+    left:50%;
+    bottom:-25px;
+
+    transform:translateX(-50%);
+
+    border:7px solid #ff4d00;
+    border-top:none;
+
+    border-radius:0 0 60px 60px;
+
+    z-index:5;
+}
+
+.net{
+    position:absolute;
+
+    width:70px;
+    height:55px;
+
+    left:50%;
+    bottom:-75px;
+
+    transform:translateX(-50%);
+
+    border-left:2px solid white;
+    border-right:2px solid white;
+    border-bottom:2px solid white;
+
+    opacity:.6;
+}
+
+
+
+.ball{
+    position:absolute;
+
+    left:50%;
+    bottom:55px;
+
+    transform:translateX(-50%);
+
+    font-size:55px;
+
+    cursor:pointer;
+    user-select:none;
+
+    z-index:20;
+
+    transition:
+    left .25s,
+    bottom .25s,
+    transform .15s;
+}
+
+.ball:hover{
+    transform:
+    translateX(-50%)
+    scale(1.1);
+}
+
+
+
+.game-message{
+    position:absolute;
+
+    left:50%;
+    top:48%;
+
+    transform:translate(-50%,-50%);
+
+    font-size:35px;
+    font-weight:900;
+
+    text-align:center;
+
+    text-shadow:0 5px 20px rgba(0,0,0,.5);
+
+    z-index:20;
+}
+
+.game-start{
+    position:absolute;
+
+    left:50%;
+    top:58%;
+
+    transform:translateX(-50%);
+
+    padding:14px 30px;
+
+    border:none;
+    border-radius:50px;
+
+    background:white;
+    color:black;
+
+    font-weight:800;
+
+    cursor:pointer;
+
+    z-index:30;
+
+    transition:.3s;
+}
+
+.game-start:hover{
+    background:var(--orange);
+    color:white;
+}
+
+
+
+.game-controls{
+    max-width:900px;
+    margin:25px auto;
+
+    display:flex;
+    justify-content:center;
+    gap:15px;
+}
+
+.shoot-button,
+.restart-button{
+    padding:15px 30px;
+
+    border:none;
+    border-radius:50px;
+
+    font-weight:800;
+
+    cursor:pointer;
+
+    transition:.3s;
+}
+
+.shoot-button{
+    background:var(--orange);
+    color:white;
+    min-width:180px;
+}
+
+.shoot-button:hover:not(:disabled){
+    transform:translateY(-4px);
+    background:var(--orange2);
+}
+
+.shoot-button:disabled{
+    opacity:.4;
+    cursor:not-allowed;
+}
+
+.restart-button{
+    background:#222;
+    color:white;
+}
+
+.restart-button:hover{
+    background:#333;
+}
+
+
+
+.game-instructions{
+    max-width:700px;
+
+    margin:35px auto 0;
+
+    padding:25px;
+
+    text-align:center;
+
+    background:rgba(255,255,255,.03);
+
+    border-radius:20px;
+}
+
+.game-instructions h3{
+    color:var(--orange);
+    margin-bottom:15px;
+}
+
+.game-instructions p{
+    color:#aaa;
+    font-size:14px;
+    margin:7px;
+}
+
+
+
+.score-popup{
+    position:absolute;
+
+    color:white;
+
+    font-size:30px;
+    font-weight:900;
+
+    pointer-events:none;
+
+    animation:scorePop .8s forwards;
+
+    z-index:100;
+}
+
+@keyframes scorePop{
+
+    0%{
+        opacity:1;
+        transform:translateY(0) scale(1);
+    }
+
+    100%{
+        opacity:0;
+        transform:translateY(-80px) scale(1.4);
+    }
+
+}
+
+
+
+.highlight-grid{
+    max-width:1150px;
+    margin:auto;
+
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+
+    gap:20px;
+}
+
+.highlight-card{
+    min-height:400px;
+
+    border-radius:25px;
+
+    overflow:hidden;
+
+    position:relative;
+
+    background-size:cover;
+    background-position:center;
+
+    transition:.4s;
+}
+
+.highlight-card:hover{
+    transform:translateY(-10px);
+}
+
+.highlight-one{
+    background-image:
+    linear-gradient(
+        transparent,
+        rgba(0,0,0,.95)
+    ),
+    url("https://images.unsplash.com/photo-1519861531473-9200262188bf?w=1000");
+}
+
+.highlight-two{
+    background-image:
+    linear-gradient(
+        transparent,
+        rgba(0,0,0,.95)
+    ),
+    url("https://images.unsplash.com/photo-1546519638-68e109498ffc?w=1000");
+}
+
+.highlight-three{
+    background-image:
+    linear-gradient(
+        transparent,
+        rgba(0,0,0,.95)
+    ),
+    url("https://images.unsplash.com/photo-1504450758481-7338eba7524a?w=1000");
+}
+
+.highlight-overlay{
+    position:absolute;
+
+    left:25px;
+    right:25px;
+    bottom:25px;
+}
+
+.highlight-overlay span{
+    color:var(--orange);
+    font-size:11px;
+    font-weight:800;
+    letter-spacing:3px;
+}
+
+.highlight-overlay h3{
+    font-size:28px;
+    margin:10px 0;
+}
+
+.highlight-overlay p{
+    color:#ccc;
+}
+
+
+
+.story-section{
+    max-width:1000px;
+    margin:auto;
+}
+
+.story-content p{
+    color:#ccc;
+
+    font-size:18px;
+
+    line-height:2;
+
+    text-align:justify;
+
+    margin-bottom:25px;
+}
+
+.quote-box{
+    margin:50px 0;
+
+    padding:40px;
+
+    background:
+    linear-gradient(
+        135deg,
+        rgba(255,114,0,.12),
+        rgba(255,255,255,.02)
+    );
+
+    border-left:5px solid var(--orange);
+
+    border-radius:0 20px 20px 0;
+}
+
+.quote-mark{
+    color:var(--orange);
+    font-size:70px;
+    font-weight:900;
+}
+
+.quote-box p{
+    font-size:21px;
+    font-weight:600;
+}
+
+
+
+.lesson-box{
+    max-width:1000px;
+
+    margin:auto;
+
+    padding:70px 60px;
+
+    background:
+    linear-gradient(
+        145deg,
+        #171717,
+        #0d0d0d
+    );
+
+    border-radius:30px;
+
+    border:1px solid rgba(255,114,0,.2);
+
+    text-align:center;
+}
+
+.lesson-box p{
+    max-width:800px;
+    margin:0 auto 20px;
+
+    color:#ccc;
+
+    line-height:1.9;
+}
+
+.lesson-highlight{
+    margin-top:40px;
+
+    color:var(--orange);
+
+    font-size:18px;
+
+    font-weight:900;
+
+    letter-spacing:3px;
+}
+
+
+
+.news-grid{
+    max-width:1100px;
+
+    margin:auto;
+
+    display:grid;
+
+    grid-template-columns:repeat(3,1fr);
+
+    gap:25px;
+}
+
+.news-card{
+    background:#151515;
+
+    padding:35px;
+
+    border-radius:20px;
+
+    border:1px solid rgba(255,255,255,.05);
+
+    transition:.3s;
+}
+
+.news-card:hover{
+    transform:translateY(-8px);
+    border-color:var(--orange);
+}
+
+.news-date{
+    color:var(--orange);
+
+    font-size:11px;
+
+    font-weight:800;
+
+    letter-spacing:2px;
+
+    margin-bottom:15px;
+}
+
+.news-card h3{
+    font-size:25px;
+    margin-bottom:15px;
+}
+
+.news-card p{
+    color:#aaa;
+    line-height:1.7;
+    margin-bottom:25px;
+}
+
+.news-card a{
+    color:var(--orange);
+    text-decoration:none;
+    font-weight:700;
+}
+
+
+
+footer{
+    background:#050505;
+
+    padding:70px 20px 30px;
+
+    text-align:center;
+
+    border-top:1px solid rgba(255,255,255,.05);
+}
+
+.footer-logo{
+    color:var(--orange);
+
+    font-size:32px;
+
+    font-weight:900;
+
+    margin-bottom:15px;
+}
+
+footer > p{
+    color:#777;
+    margin-bottom:25px;
+}
+
+.footer-links{
+    display:flex;
+    justify-content:center;
+    gap:25px;
+    flex-wrap:wrap;
+
+    margin-bottom:30px;
+}
+
+.footer-links a{
+    color:#aaa;
+    text-decoration:none;
+}
+
+.footer-links a:hover{
+    color:var(--orange);
+}
+
+.footer-line{
+    max-width:700px;
+    height:1px;
+
+    background:#222;
+
+    margin:auto auto 25px;
+}
+
+.copyright{
+    font-size:12px;
+    color:#555!important;
+}
+
+
+
+.reveal{
+    opacity:0;
+    transform:translateY(50px);
+
+    transition:
+    opacity .8s ease,
+    transform .8s ease;
+}
+
+.reveal.show{
+    opacity:1;
+    transform:translateY(0);
+}
+
+
+
+@media(max-width:900px){
+
+    nav{
+        gap:12px;
+    }
+
+    nav a{
+        font-size:11px;
+    }
+
+    .player-grid,
+    .highlight-grid,
+    .news-grid{
+        grid-template-columns:1fr;
+    }
+
+    .stats{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+}
+
+
+@media(max-width:700px){
+
+    header{
+        position:absolute;
+        flex-direction:column;
+        gap:15px;
+    }
+
+    nav{
+        flex-wrap:wrap;
+        justify-content:center;
+    }
+
+    .hero{
+        min-height:700px;
+    }
+
+    .hero-content{
+        padding:0 7%;
+    }
+
+    .hero h1{
+        font-size:45px;
+    }
+
+    .hero p{
+        font-size:15px;
+    }
+
+    .game-hud{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .game-container{
+        height:430px;
+    }
+
+    .game-controls{
+        flex-direction:column;
+    }
+
+    .shoot-button,
+    .restart-button{
+        width:100%;
+    }
+
+    .lesson-box{
+        padding:45px 25px;
+    }
+
+    .story-content p,
+    .introduction p{
+        font-size:16px;
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+
+<header id="header">
+
+    <div class="logo">
+        🏀 <span>Hoop</span>Verse
+    </div>
+
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#players">Players</a>
+        <a href="#game">Game</a>
+        <a href="#highlights">Highlights</a>
+        <a href="#news">News</a>
+        <a href="#story">My Story</a>
+    </nav>
+
+</header>
+
+
+
+
+<section class="hero" id="home">
+
+    <div class="hero-content">
+
+        <span class="small-title">
+            WELCOME TO HOOPVERSE
+        </span>
+
+        <h1>
+            MY BASKETBALL
+            <span>JOURNEY</span>
+        </h1>
+
+        <p>
+            Every game has a story. Every loss has a lesson.
+            This is the journey that shaped me both as a basketball
+            player and as a person.
+        </p>
+
+        <div class="hero-buttons">
+
+            <a href="#story" class="btn">
+                Read My Story →
+            </a>
+
+            <a href="#game" class="btn btn-outline">
+                🎮 Play Game
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<section class="introduction reveal" id="story">
+
+    <div class="section-tag">
+        MY JOURNEY
+    </div>
+
+    <h2>
+        More Than Just <span>Basketball</span>
+    </h2>
+
+    <p>
+        Every day gives me another chance to grow into a better version
+        of myself. I take time to reflect on my thoughts, words, and
+        actions because I know that every decision shapes the person I
+        am becoming. Whenever I make mistakes, I choose to learn from
+        them instead of letting them define me.
+    </p>
+
+    <p>
+        Basketball has become more than just a sport—it has taught me
+        discipline, patience, resilience, and the courage to keep moving
+        forward even after the hardest setbacks. It has helped me grow
+        not only as a player but also as a person, both on and off the court.
+    </p>
+
+</section>
+
+
+
+<section class="stats reveal">
+
+    <div class="stat">
+        <h3>01</h3>
+        <p>Passion</p>
+    </div>
+
+    <div class="stat">
+        <h3>24/7</h3>
+        <p>Dedication</p>
+    </div>
+
+    <div class="stat">
+        <h3>∞</h3>
+        <p>Dreams</p>
+    </div>
+
+    <div class="stat">
+        <h3>1</h3>
+        <p>Journey</p>
+    </div>
+
+</section>
+
+
+
+<section id="players" class="reveal">
+
+    <div class="section-tag">
+        THE GAME
+    </div>
+
+    <h2>
+        Basketball <span>Players</span>
+    </h2>
+
+    <p class="section-description">
+        Basketball is built by players who are willing to work,
+        compete, and keep improving.
+    </p>
+
+    <div class="player-grid">
+
+        <div class="player-card">
+
+            <div class="player-number">01</div>
+
+            <div class="player-icon">🏀</div>
+
+            <h3>Point Guard</h3>
+
+            <p>
+                The floor general who controls the offense,
+                creates opportunities, and leads the team.
+            </p>
+
+            <span>PLAYMAKER</span>
+
+        </div>
+
+
+        <div class="player-card featured">
+
+            <div class="player-number">02</div>
+
+            <div class="player-icon">⚡</div>
+
+            <h3>Shooting Guard</h3>
+
+            <p>
+                A scoring threat who creates shots, attacks the
+                defense, and delivers when the team needs points.
+            </p>
+
+            <span>SCORER</span>
+
+        </div>
+
+
+        <div class="player-card">
+
+            <div class="player-number">03</div>
+
+            <div class="player-icon">🔥</div>
+
+            <h3>Forward</h3>
+
+            <p>
+                A versatile player who can score, defend,
+                rebound, and contribute anywhere on the court.
+            </p>
+
+            <span>ALL-AROUND</span>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= GAME ================= -->
+
+<section id="game" class="game-section reveal">
+
+    <div class="section-tag">
+        HOOPVERSE ARCADE
+    </div>
+
+    <h2>
+        🏀 Shooting <span>Challenge</span>
+    </h2>
+
+    <p class="section-description">
+        How many shots can you make in 30 seconds?
+        Tap the basketball to shoot!
+    </p>
+
+
+    <div class="game-hud">
+
+        <div class="hud-box">
+            <small>SCORE</small>
+            <strong id="score">0</strong>
+        </div>
+
+        <div class="hud-box">
+            <small>TIME</small>
+            <strong id="time">30</strong>
+        </div>
+
+        <div class="hud-box">
+            <small>COMBO</small>
+            <strong id="combo">0🔥</strong>
+        </div>
+
+        <div class="hud-box">
+            <small>BEST</small>
+            <strong id="bestScore">0</strong>
+        </div>
+
+    </div>
+
+
+    <div class="game-container" id="gameContainer">
+
+        <div class="court-lines"></div>
+
+        <div class="three-point-line"></div>
+
+        <div class="free-throw-line"></div>
+
+
+        <div class="backboard">
+
+            <div class="rim"></div>
+
+            <div class="net"></div>
+
+        </div>
+
+
+        <div class="ball" id="ball">
+            🏀
+        </div>
+
+
+        <div class="game-message" id="gameMessage">
+            PRESS START
+        </div>
+
+
+        <button
+            id="startGame"
+            class="game-start"
+        >
+            START GAME
+        </button>
+
+    </div>
+
+
+    <div class="game-controls">
+
+        <button
+            id="shootButton"
+            class="shoot-button"
+            disabled
+        >
+            🏀 SHOOT
+        </button>
+
+        <button
+            id="restartButton"
+
